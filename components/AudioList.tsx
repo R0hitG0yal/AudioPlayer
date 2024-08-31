@@ -34,7 +34,7 @@ const AudioList: React.FC<AudioListProps> = ({
               key={file.id}
               className={`text-slate-100 font-normal p-2 size-44  sm:text-2xl sm:p-6 sm:size-64 rounded-xl overflow-hidden m-auto shadow-2xl  ${
                 currentFileId === file.id
-                  ? "bg-slate-800 text-white"
+                  ? "bg-green-600 text-white"
                   : "bg-stone-700"
               }`}
               onClick={() => onSelect(file)}
@@ -55,7 +55,7 @@ const AudioList: React.FC<AudioListProps> = ({
               <tr
                 key={file.id}
                 className={`cursor-pointer ${
-                  currentFileId === file.id ? "bg-slate-800 text-white" : ""
+                  currentFileId === file.id ? "bg-green-600 text-white" : ""
                 }`}
                 onClick={() => onSelect(file)}
               >
