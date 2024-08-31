@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen p-4 font-[Rock Serodaz]">
+    <div className="min-h-screen max-w-screen overflow-x-hidden sm:p-4 font-[Rock Serodaz]">
       <UploadAudio onUpload={handleUpload} />
       <AudioList
         audioFiles={audioFiles}

@@ -24,8 +24,8 @@ const UploadAudio: React.FC<UploadAudioProps> = ({ onUpload }) => {
   };
 
   return (
-    <div className="p-4 flex justify-center items-center shadow-2xl ">
-      <input className="rounded-full text-xl font-600 " type="file" accept="audio/*" multiple onChange={handleUpload} />
+    <div className="w-screen p-4 flex justify-center items-center shadow-2xl overflow-x-hidden">
+      <input className="rounded-full sm:text-xl sm:font-600" type="file" accept="audio/*" multiple onChange={handleUpload} />
     </div>
   );
 };

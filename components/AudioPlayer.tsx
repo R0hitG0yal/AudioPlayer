@@ -3,7 +3,7 @@ import ReactAudioPlayer from "react-audio-player";
 import { IconButton } from "@mui/material";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import { AudioFile } from "./types"; 
+import { AudioFile } from "./types";
 
 interface AudioPlayerProps {
   audioFiles: AudioFile[];
@@ -25,23 +25,22 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
   if (!currentFile) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 p-4 bg-gray-800 text-white grid grid-cols-3 items-center gap-4">
-      <div className="overflow-hidden">
-        <p>{currentFile.name}</p>
+    <div className="max-w-screen grid sm:grid-cols-3 items-center sm:gap-4 fixed bottom-0 left-0 right-0 sm:p-4 bg-gray-800 text-white overflow-hidden">
+      <div className="overflow-hidden text-center sm:text-left">
+        <p className="truncate overflow-hidden p-1 max-w-[80%] m-auto">{currentFile.name}</p>
       </div>
       <ReactAudioPlayer
-      className="mx-auto"
+        className="mx-auto h-8 sm:h-14 "
         src={currentFile.url}
         controls
-        autoPlay
         onEnded={onEnded}
       />
-      <div className="flex items-center justify-end">
-        <IconButton onClick={onPrevious} color="inherit">
-          <SkipPreviousIcon />
+      <div className="flex justify-center sm:justify-end">
+        <IconButton onClick={onPrevious} aria-label="previous">
+          <SkipPreviousIcon className="text-white" />
         </IconButton>
-        <IconButton onClick={onNext} color="inherit">
-          <SkipNextIcon />
+        <IconButton onClick={onNext} aria-label="next">
+          <SkipNextIcon className="text-white" />
         </IconButton>
       </div>
     </div>
