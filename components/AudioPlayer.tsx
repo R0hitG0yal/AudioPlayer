@@ -33,6 +33,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({
         className="mx-auto h-8 sm:h-14 "
         src={currentFile.url}
         controls
+        autoPlay
         onEnded={onEnded}
       />
       <div className="flex justify-center sm:justify-end">
