@@ -3,4 +3,5 @@ export interface AudioFile {
   name: string;
   file: File;
   url: string;
+  poster: string;
 }

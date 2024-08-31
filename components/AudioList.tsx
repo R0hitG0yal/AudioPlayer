@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IconButton } from "@mui/material";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TableRowsIcon from "@mui/icons-material/TableRows";
-import { AudioFile } from "./types"; 
+import { AudioFile } from "./types";
 
 interface AudioListProps {
   audioFiles: AudioFile[];
@@ -30,16 +30,24 @@ const AudioList: React.FC<AudioListProps> = ({
       {isGridView ? (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-2 sm:gap-y-6 justify-evenly">
           {audioFiles.map((file) => (
-            <div
-              key={file.id}
-              className={`text-slate-100 font-normal p-2 size-44  sm:text-2xl sm:p-6 sm:size-64 rounded-xl overflow-hidden m-auto shadow-2xl  ${
-                currentFileId === file.id
-                  ? "bg-green-600 text-white"
-                  : "bg-stone-700"
-              }`}
-              onClick={() => onSelect(file)}
-            >
-              <p>{file.name}</p>
+            <div key={file.id}>
+              <div
+                className={`size-44 sm:size-64 rounded-xl  m-auto shadow-2xl  ${
+                  currentFileId === file.id
+                    ? "shadow-green-600 text-black"
+                    : "bg-stone-700"
+                }`}
+                onClick={() => onSelect(file)}
+              >
+                <img
+                  src={file.poster}
+                  alt={file.name}
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className=" sm:text-lg font-normal text-green-800 my-4 text-center mx-auto overflow-hidden">
+                {file.name}
+              </p>
             </div>
           ))}
         </div>
@@ -47,7 +55,9 @@ const AudioList: React.FC<AudioListProps> = ({
         <table className="w-screen table-auto sm:text-xl font-serif sm:tracking-wider ">
           <thead>
             <tr>
-              <th className="sm:text-3xl font-serif sm:tracking-wider ">Title</th>
+              <th className="sm:text-3xl font-serif sm:tracking-wider ">
+                Title
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +69,14 @@ const AudioList: React.FC<AudioListProps> = ({
                 }`}
                 onClick={() => onSelect(file)}
               >
-                <td className="px-2 m-2 sm:p-4 rounded-lg overflow-hidden">{file.name}</td>
+                <td className="flex px-2 m-2 sm:p-2 rounded-lg overflow-hidden">
+                  <img
+                    src={file.poster}
+                    alt={file.name}
+                    className="w-12 h-auto"
+                  />
+                  <p className="ml-4 flex items-center ">{file.name}</p>
+                </td>
               </tr>
             ))}
           </tbody>
